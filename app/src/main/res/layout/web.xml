@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+  <Button
+      android:id="@+id/defaultTheme"
+      android:layout_width="match_parent"
+      android:layout_height="64dp"
+      android:layout_alignParentBottom="true"
+      android:background="@drawable/finestwhite"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:onClick="onClick"
+      android:text="Wheat"
+      android:textColor="@color/finestBlack"
+      android:layout_marginTop="20px"
+      android:layout_marginBottom="20px"
+      />
+
+  <Button
+      android:id="@+id/redTheme"
+      android:layout_width="match_parent"
+      android:layout_height="64dp"
+      android:layout_alignParentBottom="true"
+      android:background="@drawable/primaryred"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:onClick="onClick"
+      android:text="Bajra"
+      android:textColor="@color/finestWhite"
+      android:layout_marginBottom="20px"
+      />
+
+  <Button
+      android:id="@+id/blueTheme"
+      android:layout_width="match_parent"
+      android:layout_height="64dp"
+      android:layout_alignParentBottom="true"
+      android:background="@drawable/blueprimary"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:onClick="onClick"
+      android:text="Corn / Maize"
+      android:textColor="@color/finestWhite"
+      android:layout_marginBottom="20px"
+      />
+
+  <Button
+      android:id="@+id/blackTheme"
+      android:layout_width="match_parent"
+      android:layout_height="64dp"
+      android:layout_alignParentBottom="true"
+      android:background="@drawable/blackprimary"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:onClick="onClick"
+      android:text="Groundnuts"
+      android:textColor="@color/finestWhite"
+      android:layout_marginBottom="20px"
+      />
+
+</LinearLayout>

@@ -1,0 +1,182 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/INDEX.LIST'
+        exclude("META-INF/*.kotlin_module")
+    }
+
+    defaultConfig {
+        applicationId "com.teamup.dubeproject"
+        minSdkVersion 19
+        targetSdkVersion 30
+        versionCode 4
+        versionName "2.1.1"
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true   // Obfuscate and minify codesR
+            shrinkResources true // Remove unused resources
+            useProguard true     // Remove unused codes
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false   // Obfuscate and minify codes
+
+
+        }
+
+        buildTypes.each {
+            it.buildConfigField 'String', 'androidx', android_life
+            it.resValue 'string', 'androidx', android_life
+            it.buildConfigField 'String', 'android_name', android_name
+            it.resValue 'string', 'android_name', android_name
+            it.buildConfigField 'String', 'android_base', android_base
+            it.resValue 'string', 'android_base', android_base
+        }
+
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    buildscript {
+        configurations.all {
+            resolutionStrategy {
+                force 'net.sf.proguard:proguard-gradle:5.3.3'
+            }
+        }
+    }
+
+    configurations {
+        compile.exclude group: "junit", module: "junit"
+
+           }
+
+    configurations {
+        cleanedAnnotations
+        compile.exclude group: 'org.jetbrains', module: 'annotations'
+    }
+
+    android {
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+    }
+    ndkVersion '21.1.6352462'
+}
+
+dependencies {
+    implementation 'org.tensorflow:tensorflow-lite:1.14.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.android.material:material:1.4.0-rc01'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+    implementation 'net.sourceforge.jexcelapi:jxl:2.6.12'
+    implementation 'com.loopj.android:android-async-http:1.4.10'
+    implementation 'com.opensooq.supernova:gligar:1.1.0'
+    implementation 'com.cleveroad:fan-layout-manager:1.0.5'
+    implementation 'com.wdullaer:materialdatetimepicker:4.2.3'
+    implementation 'com.github.mukeshsolanki:liquidrefreshlayout:+'
+    implementation 'com.google.android.exoplayer:exoplayer:2.14.0'
+    implementation 'com.android.volley:volley:1.2.0'
+    implementation 'com.github.pwittchen:reactivenetwork-rx2:3.0.8'
+    implementation 'com.appolica:flubber:1.0.1'
+    implementation 'com.github.hotchemi:android-rate:1.0.1'
+    implementation 'com.jjoe64:graphview:4.2.2'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.+'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    compile 'com.github.rahulkapoor1:ZommableLoadingImageView:v1.2'
+
+
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.eftimoff:android-viewpager-transformers:1.0.1@aar'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.github.devlight:infinitecycleviewpager:1.0.2'
+    implementation 'com.github.marcoscgdev:MaterialToast:1.0.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+    implementation 'com.loopj.android:android-async-http:1.4.10'
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
+    implementation 'com.jackandphantom.android:blurimage:1.2.0'
+    implementation 'com.github.amlcurran.showcaseview:library:5.4.3'
+
+    implementation 'com.github.hotchemi:android-rate:1.0.1'
+
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'id.zelory:compressor:2.1.0'
+    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
+
+    implementation 'com.github.AppSync-ai:AppSync:21'
+    implementation 'com.mikhaellopez:circularprogressbar:3.0.3'
+    implementation 'com.whiteelephant:monthandyearpicker:1.3.0'
+
+    implementation 'com.facebook.android:facebook-android-sdk:5.15.3'
+    implementation 'com.facebook.android:facebook-login:5.15.3'
+
+    implementation 'com.github.florent37:viewanimator:1.1.0'
+
+    implementation 'com.github.smarteist:autoimageslider:1.4.0'
+    implementation 'nl.dionsegijn:konfetti:1.2.6'
+
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+
+    //yieldprediction
+    implementation 'com.thefinestartist:finestwebview:1.2.7'
+
+    //chatbot
+    implementation 'com.google.cloud:google-cloud-dialogflow:2.1.0'
+    implementation 'io.grpc:grpc-okhttp:1.30.0'
+
+}
+apply plugin: 'kotlin-android-extensions'

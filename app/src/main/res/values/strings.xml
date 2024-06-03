@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Farm 360</string>
+    <string name="update">Update</string>
+    <string name="submit">Submit</string>
+    <string name="insert_expense">INSERT INTO `Expense` (`id`, `email`, `name`, `expense`, `cat`, `description`, `timer`, `title` ) VALUES (NULL, \'</string>
+    <string name="expense_query2" translatable="false">fetch_expense.php?query=select%20*%20from%20Expense%20where%20email%20=%20</string>
+    <string name="expense_query" translatable="false">fetch_expense.php?query=select%20*%20from%20Expense%20where%20email%20=%20</string>
+
+
+    <string name="map_api_key">AIzaSyBhedvXfte4wpvlp6zi_3gk_aVnf24FvHY</string>
+</resources>
